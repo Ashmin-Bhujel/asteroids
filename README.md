@@ -4,9 +4,9 @@ A simple version of a vintage game called Asteroids.
 
 ## Run The Project
 
-**Note:** It is recommended to use [`uv`](https://docs.astral.sh/uv/) as the project and package manager for this project.
+> **Note:** It is recommended to use [`uv`](https://docs.astral.sh/uv/) as the project and package manager for this project.
 
-### For `uv` users
+### For `uv` Users
 
 1. Sync the project's dependencies with the environment
 
@@ -26,12 +26,12 @@ A simple version of a vintage game called Asteroids.
    uv run main.py
    ```
 
-### For `pip` users
+### For `pip` Users
 
 1. Create a virtual environment
 
    ```bash
-   python3 -m venv
+   python3 -m venv .venv
    ```
 
 2. Activate the virtual environment
@@ -43,7 +43,7 @@ A simple version of a vintage game called Asteroids.
 3. Install dependencies
 
    ```bash
-   pip install -r pyproject.toml
+   pip install -r requirements.txt
    ```
 
 4. Run the game
