@@ -3,6 +3,7 @@ from constants import SCREEN_WIDTH, SCREEN_HEIGHT
 from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
+import sys
 
 
 # Entrypoint
@@ -24,7 +25,7 @@ def main():
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
-    Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
+    player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     AsteroidField()
 
     # Game loop
@@ -37,6 +38,12 @@ def main():
         # Update all the updatable objects
         updatable.update(dt)
         screen.fill("#111111")
+
+        # Detect the collision between asteroids and the player
+        for asteroid in asteroids:
+            if asteroid.is_collided(player):
+                print("Game Over!")
+                sys.exit(1)
 
         # Draw all the drawable objects
         for drawable_object in drawable:
