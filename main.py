@@ -4,6 +4,7 @@ from player import Player
 from asteroid import Asteroid
 from asteroidfield import AsteroidField
 import sys
+from shot import Shot
 
 
 # Entrypoint
@@ -14,6 +15,7 @@ def main():
 
     # Initialize pygame
     pygame.init()
+    pygame.display.set_caption("Asteroids Game")
     screen = pygame.display.set_mode([SCREEN_WIDTH, SCREEN_HEIGHT])
     clock = pygame.time.Clock()
     dt = 0
@@ -22,9 +24,11 @@ def main():
     updatable = pygame.sprite.Group()
     drawable = pygame.sprite.Group()
     asteroids = pygame.sprite.Group()
+    shots = pygame.sprite.Group()
     Player.containers = (updatable, drawable)
     Asteroid.containers = (asteroids, updatable, drawable)
     AsteroidField.containers = updatable
+    Shot.containers = (shots, updatable, drawable)
     player = Player(SCREEN_WIDTH / 2, SCREEN_HEIGHT / 2)
     AsteroidField()
 
@@ -39,11 +43,18 @@ def main():
         updatable.update(dt)
         screen.fill("#111111")
 
-        # Detect the collision between asteroids and the player
+        # Detect collisions
         for asteroid in asteroids:
+            # Between asteroids and player
             if asteroid.is_collided(player):
                 print("Game Over!")
                 sys.exit(1)
+
+            # Between asteroids and shots
+            for shot in shots:
+                if asteroid.is_collided(shot):
+                    asteroid.kill()
+                    shot.kill()
 
         # Draw all the drawable objects
         for drawable_object in drawable:
