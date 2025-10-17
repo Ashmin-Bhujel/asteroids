@@ -2,9 +2,21 @@
 
 A simple version of a vintage game called Asteroids.
 
+## Game Demo
+
+![Game demo gif for Asteroids](./game-demo.gif)
+
+### Game Controls
+
+- `W` or `Up` to move forward
+- `A` or `Left` to rotate left
+- `S` or `Down` to move backwards
+- `D` or `Right` to rotate right
+- `Space` to shoot
+
 ## Run The Project
 
-> **Note:** It is recommended to use [`uv`](https://docs.astral.sh/uv/) as the project and package manager for this project.
+> **Note:** It is recommended to use [`uv`](https://docs.astral.sh/uv/) as the project and package manager for this project. But the commands for `pip` is also provided.
 
 ### For `uv` Users
 
