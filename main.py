@@ -1,10 +1,10 @@
+import sys
 import pygame
 from constants import SCREEN_WIDTH, SCREEN_HEIGHT
-from player import Player
-from asteroid import Asteroid
-from asteroidfield import AsteroidField
-import sys
-from shot import Shot
+from modules.player import Player
+from modules.asteroid import Asteroid
+from modules.asteroidfield import AsteroidField
+from modules.shot import Shot
 
 
 # Entrypoint
